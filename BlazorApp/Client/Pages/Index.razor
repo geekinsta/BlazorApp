@@ -1,64 +1,7 @@
 ﻿@page "/"
-@*@using Helpers;*@
 
-<h1>@message</h1>
-<h2>Message is @GetLength(message) chars long.</h2>
-<h2>@(message + " Geekinsta")</h2>
-
-<button class="btn btn-primary" @onclick="@(() => message = "You clicked me")">Click Me</button>
-
-<button class="btn btn-success" @onclick="@(() => MyClass.WriteToConsole())">Write to console</button>
-
-<button type="button" class="btn btn-info" @onclick="@(()=> ConsoleHelper.WriteToConsole())">Call console helper</button>
-
-<h1>Customers</h1>
-@foreach(var customer in Customers)
-{
-    <div class="card mb-3">
-        <div class="card-header">
-            @customer.Name
-            @if (customer.IsSubscribedToNewsletter)
-            {
-                <span class="badge badge-success">Subscribed</span>
-            }
-            else
-            {
-                <span class="badge badge-danger">Not subscribed</span>
-            }
-        </div>
-        <div class="card-body">@customer.Email</div>
-    </div>
-}
-
-Welcome to your new app.
+<CustomerList />
 
 @code{
-    string message = "Hello, World!";
 
-    int GetLength(string text)
-    {
-        return text.Length;
-    }
-
-    public class MyClass
-    {
-        public static void WriteToConsole(string text = "Message from MyClass")
-        {
-            Console.WriteLine(text);
-        }
-    }
-
-    public class Customer
-    {
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public bool IsSubscribedToNewsletter { get; set; }
-    }
-
-    List<Customer> Customers = new List<Customer>()
-    {
-        new Customer(){Name= "John Doe", Email="john@mail.com", IsSubscribedToNewsletter=true},
-        new Customer(){Name= "Jane Doe", Email="jane@mail.com", IsSubscribedToNewsletter=true},
-        new Customer(){Name= "Janet Doe", Email="janet@mail.com", IsSubscribedToNewsletter=false},
-    };
 }

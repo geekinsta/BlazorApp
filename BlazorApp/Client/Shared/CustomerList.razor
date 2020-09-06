@@ -1,0 +1,34 @@
+﻿<h3>Customer List</h3>
+@foreach (var customer in Customers)
+{
+    <div class="card mb-3">
+        <div class="card-header">
+            @customer.Name
+            @if (customer.IsSubscribedToNewsletter)
+            {
+                <span class="badge badge-success">Subscribed</span>
+            }
+            else
+            {
+                <span class="badge badge-danger">Not subscribed</span>
+            }
+        </div>
+        <div class="card-body">@customer.Email</div>
+    </div>
+}
+
+@code {
+    public class Customer
+    {
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public bool IsSubscribedToNewsletter { get; set; }
+    }
+
+    List<Customer> Customers = new List<Customer>()
+    {
+        new Customer(){Name= "John Doe", Email="john@mail.com", IsSubscribedToNewsletter=true},
+        new Customer(){Name= "Jane Doe", Email="jane@mail.com", IsSubscribedToNewsletter=true},
+        new Customer(){Name= "Janet Doe", Email="janet@mail.com", IsSubscribedToNewsletter=false},
+    };
+}
