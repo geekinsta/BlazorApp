@@ -18,17 +18,8 @@
 }
 
 @code {
-    public class Customer
-    {
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public bool IsSubscribedToNewsletter { get; set; }
-    }
 
-    List<Customer> Customers = new List<Customer>()
-    {
-        new Customer(){Name= "John Doe", Email="john@mail.com", IsSubscribedToNewsletter=true},
-        new Customer(){Name= "Jane Doe", Email="jane@mail.com", IsSubscribedToNewsletter=true},
-        new Customer(){Name= "Janet Doe", Email="janet@mail.com", IsSubscribedToNewsletter=false},
-    };
+    [Parameter]
+    public List<Customer> Customers { get; set; }
+
 }

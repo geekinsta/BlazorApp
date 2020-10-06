@@ -1,7 +1,13 @@
 ﻿@page "/"
+<Alert Message="Displaying list of customers" Style="alert-success" title="Hover to see the title"></Alert>
 
-<CustomerList />
+<CustomerList Customers="_customers"/>
 
 @code{
-
+    List<Customer> _customers = new List<Customer>()
+    {
+        new Customer(){Name= "John Doe", Email="john@mail.com", IsSubscribedToNewsletter=true},
+        new Customer(){Name= "Jane Doe", Email="jane@mail.com", IsSubscribedToNewsletter=true},
+        new Customer(){Name= "Janet Doe", Email="janet@mail.com", IsSubscribedToNewsletter=false},
+    };
 }
